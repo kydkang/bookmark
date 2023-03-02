@@ -20,28 +20,28 @@ class UserRegistrationForm(forms.ModelForm):
             raise forms.ValidationError('Passwords don\'t mathch')
         return cd['password2']
     
+    ## To check the uniqueness of email field   
     def clean_email(self):
         email = self.cleaned_data.get('email')
         username = self.cleaned_data.get('username')
-        if email and  User.objects.filter(email=email).exclude(username=username).exists():
+        if not email: 
+            raise forms.ValidationError('Email address is required.')
+        if email and  User.objects.filter(email=email).exists():
             raise forms.ValidationError('Email addresses must be unique.')
         return email  
-    
-    def __init__(self, *args, **kwargs):
-        super(UserRegistrationForm, self).__init__(*args, **kwargs)
-        self.fields['email'].required = True
-
     
 class UserEditForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'email']
 
+    ## To check the uniqueness of email 
     def clean_email(self):
         email = self.cleaned_data.get('email')
         username = self.cleaned_data.get('username')
-        if email and  User.objects.filter(email=email).exclude(username=username).exists():
-            raise forms.ValidationError('Email addresses must be unique.')
+        if 'email' in self.changed_data:    ## if email field is changed 
+            if email and  User.objects.filter(email=email).exclude(username=username).exists():
+                raise forms.ValidationError('Email addresses must be unique.')
         return email  
     
     def __init__(self, *args, **kwargs):
