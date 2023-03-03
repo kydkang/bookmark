@@ -33,7 +33,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles', 
+
     'widget_tweaks', 
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -128,10 +131,14 @@ LOGOUT_URL = 'logout'
 
 # EMAIL_BACKEND ='django.core.mail.backends.console.EmailBackend' 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'kydkang@gmail.com'
-EMAIL_HOST_PASSWORD = 'qnliwcrwrrdqgspe'
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")  
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True 
+
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 

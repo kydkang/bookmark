@@ -12,18 +12,17 @@ class UserRegistrationForm(forms.ModelForm):
     class Meta:
         model = User 
         ## You may delete 'first_name' if you are not going to use it. 
-        fields = ['username', 'first_name', 'email']  
+        fields = ['username',  'email']    ## 'first_name',
 
     def clean_password2(self):
         cd = self.cleaned_data 
         if cd['password'] != cd['password2']:
-            raise forms.ValidationError('Passwords don\'t mathch')
+            raise forms.ValidationError('Passwords don\'t match.')
         return cd['password2']
     
     ## To check the uniqueness of email field   
     def clean_email(self):
         email = self.cleaned_data.get('email')
-        username = self.cleaned_data.get('username')
         if not email: 
             raise forms.ValidationError('Email address is required.')
         if email and  User.objects.filter(email=email).exists():
