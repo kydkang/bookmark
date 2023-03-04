@@ -1,7 +1,7 @@
+{# For login bootstrapping -- watch  https://www.youtube.com/watch?v=Sy8dVjJqLHI&t=564s  #}
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% load crispy_forms_filters %}
-
 
 {% block title %}Log-in{% endblock %}
 
@@ -24,7 +24,7 @@
                     {% endif %} 
 
                     <div class="login-form">
-                        <form action="{% url 'login' %}" method="post" novalidate >
+                        <form action="{% url 'login' %}" method="post">
                             {{ form|crispy }}
                             {% csrf_token %}
                             <input type="hidden" name="next" value="{{ next }}" /> 

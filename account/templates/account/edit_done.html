@@ -6,4 +6,9 @@
     <h1>Edit completed</h1>
     <p>Your user information is successfully updated.</p>
     <p><a href="{% url 'dashboard' %}">Dashboard</a></p>
+
+    {% if profile_form.photo.url != "" %}
+        <img src="{{ profile_form.photo.url }}" width="250" height="250">
+    {% endif %}
+
 {% endblock %}

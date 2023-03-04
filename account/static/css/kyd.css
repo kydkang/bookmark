@@ -1,0 +1,7 @@
+
+/* to make bold the label in edit.html  */
+
+#div_id_date_of_birth > label {
+    font-weight: bold;
+}
+     

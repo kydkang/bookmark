@@ -32,7 +32,8 @@ def edit(request):
             user_form.save()
             profile_form.save()
             messages.success(request, 'Profile updated successfully')
-            # return render(request, 'account/edit_done.html', {} )
+            ## to show the photo, pass the profile_form.instance
+            return render(request, 'account/edit_done.html', {'profile_form':profile_form.instance} )
         else: 
             messages.error(request, 'Error updating your profile') 
     else:

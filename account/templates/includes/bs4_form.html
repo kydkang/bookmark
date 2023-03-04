@@ -1,3 +1,7 @@
+{# This file is not being used --- instead, crisp_forms are used. #}
+{# https://simpleisbetterthancomplex.com/article/2017/08/19/how-to-render-django-form-manually.html #}
+{# Also, read https://simpleisbetterthancomplex.com/tutorial/2018/11/28/advanced-form-rendering-with-django-crispy-forms.html #}
+
 {% load widget_tweaks %}
 
 {% for hidden_field in form.hidden_fields %}
@@ -19,7 +23,7 @@
     {% if form.is_bound %}
       {% if field.errors %}
         {% render_field field class="form-control is-invalid" %} 
-        <br/>
+
         {% for error in field.errors %}
           <div class="invalid-feedback">
             {{ error }}
@@ -27,7 +31,6 @@
         {% endfor %}
       {% else %}
         {% render_field field class="form-control is-valid" %}
-        <br/><br/><br/>
         {% if field.help_text %}
           <small class="form-text text-muted">{{ field.help_text }}</small>
         {% endif %}
@@ -47,29 +50,28 @@
   {% for field in form2.visible_fields %}
     <div class="form-group">
       {{ field.label_tag }}
-
       {% if form2.is_bound %}
         {% if field.errors %}
           {% render_field field class="form-control is-invalid" %} 
-          <br/>
           {% for error in field.errors %}
             <div class="invalid-feedback">
               {{ error }}
             </div>
           {% endfor %}
         {% else %}
-          {% render_field field class="form-control is-valid" %}
+          {% render_field field  class="form-control is-valid" %}
           {% if field.help_text %}
             <small class="form-text text-muted">{{ field.help_text }}</small>
           {% endif %}
         {% endif %}
       {% else %}
         {% render_field field class="form-control" %}
-        <br/>
         {% if field.help_text %}
           <small class="form-text text-muted">{{ field.help_text }}</small>
         {% endif %}
       {% endif %}
     </div>
+
   {% endfor %}
+
 {% endif %}

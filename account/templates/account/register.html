@@ -8,6 +8,6 @@
     <form method="post" novalidate>
         {% csrf_token %}
         {% include 'includes/bs4_form.html' with form=user_form %}
-        <p><input type="submit"  class="btn btn-primary" value="Create my account"></p>
+        <p><input type="submit"  class="btn btn-primary mt-3" value="Create my account"></p>
     </form>
 {% endblock %}
