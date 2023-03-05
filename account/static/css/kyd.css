@@ -1,6 +1,18 @@
+/* Remove the asterisks at the end of labels in Login.html  */
+.asteriskField {
+    display: none;
+}
+
+/* Remove the bullets at the ul items of alert in Login form  */
+form .alert ul li {
+    list-style: none;
+}
+form .alert ul {
+    padding: 0;
+    margin: 0;
+}
 
 /* to make bold the label in edit.html  */
-
 #div_id_date_of_birth > label {
     font-weight: bold;
 }

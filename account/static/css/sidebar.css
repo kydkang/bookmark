@@ -1,3 +1,5 @@
+/*  sidebar -- https://stackoverflow.com/questions/49641293/bootstrap-4-fixed-top-nav-and-fixed-sidebar  */
+
 body {
     padding-top: 56px;
 }
@@ -16,7 +18,7 @@ body {
 }
 #sidebar-container {
     min-height: 100vh;   
-    background-color: #333;
+    background-color: #f8f9fa;    /* bg-light in bootstrap */
     padding: 0;
 }
 
@@ -31,7 +33,7 @@ body {
 /* Menu item*/
 #sidebar-container .list-group a {
     height: 50px;
-    color: white;
+    color: black;
 }
 
 /* Submenu item*/
@@ -45,15 +47,17 @@ body {
 
 /* Separators */
 .sidebar-separator-title {
-    background-color: #333;
+    background-color: #f8f9fa;    /* bg-light in bootstrap */
+
     height: 35px;
 }
 .sidebar-separator {
-    background-color: #333;
+    background-color: #f8f9fa;    /* bg-light in bootstrap */
+
     height: 25px;
 }
 .logo-separator {
-    background-color: #333;    
+    background-color: #f8f9fa;    /* bg-light in bootstrap */
     height: 60px;
 }
 

@@ -28,15 +28,22 @@
                             {{ form|crispy }}
                             {% csrf_token %}
                             <input type="hidden" name="next" value="{{ next }}" /> 
-                            <input type="submit" class="btn btn-primary mt-2" value="Log-in">
-                            <a href="{% url 'password_reset' %}" class="btn btn-link  mt-2 ml-4">
-                                Forgotten your password?
-                            </a>
+                            <div class="col-4">
+                                <div class="row justify-content-start">
+                                    <input type="submit" class="btn btn-primary btn-block mt-3" value="Log-in">
+                                </div>
+                            </div>
+                            <div class="row text-left">
+                                <a href="{% url 'password_reset' %}" class="btn btn-link mt-2  ">
+                                    Forgotten your password?
+                                </a>
+                            </div>
+
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 {% endblock %}
+

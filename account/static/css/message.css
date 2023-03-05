@@ -1,21 +1,5 @@
 /******* CSS for message handling from Django4ByExample Chapter 4  *******/
 
-
-.asteriskField {
-    display: none;
-}
-
-form .alert ul li {
-    list-style: none;
-}
-
-form .alert ul {
-    padding: 0;
-    margin: 0;
-}
-
-
-/* messages */
 ul.messages {
     margin: 0px 0px;
     padding: 0;

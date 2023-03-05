@@ -2,8 +2,6 @@
 {% load crispy_forms_tags %}
 {% load crispy_forms_filters %}
 
-
-
 {% block title %}Edit your account{% endblock %}
 
 {% block content %}
@@ -25,6 +23,7 @@
                 {{ user_form.email|as_crispy_field }}
             </div>
         </div>
+
         <div class="form-row">
             <div class="form-group col-md-6 mb-0">
                 {{ profile_form.date_of_birth|as_crispy_field }}
@@ -43,4 +42,15 @@
     </form>
 
 {% endblock %}
+
+
+{% block comment %}
+    <div class="form-row">
+        <div class="form-group">
+            <label for="address" class="ml-1">Eddress:</label>
+            <input type="text" class="form-control ml-1" placeholder="Enter address" id="address">
+        </div>
+    </div>
+{% endblock %}
+
 
