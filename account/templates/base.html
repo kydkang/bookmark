@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,9 +29,31 @@
                             <a class="nav-link ml-4" href="{% url 'dashboard' %}">Dashboard</a>
                         </li>
                     </ul>
+
+                    {# for language switching -- django4ByExample p499 #}
+                    <ul class="navbar-nav ">
+                        <li class="nav-item active ml-4">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% get_available_languages as LANGUAGES %}
+                            {% get_language_info_list for LANGUAGES as languages %}
+                            <div>
+                                <ul class="list-group list-group-horizontal mr-5">
+                                    {% for language in languages %}
+                                        <li class="mx-2 list-unstyled">
+                                            <a href="/{{ language.code }}/" {% if language.code == LANGUAGE_CODE %} class='text-primary font-weight-bold' {% else %} class='text-muted'{% endif %}>
+                                                {{ language.name_local }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+
+
                     {% if request.user.is_authenticated %}
                         <ul class="navbar-nav ">
-                            <li class="nav-item dropdown ">
+                            <li class="nav-item dropdown ml-4">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                                     {{ request.user.username }}
                                 </a>

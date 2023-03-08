@@ -2,6 +2,7 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from . import views
 
+
 urlpatterns = [
     path('password_reset/', 
          auth_views.PasswordResetView.as_view(html_email_template_name='registration/password_reset_email_html.html'), 
